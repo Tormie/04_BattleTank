@@ -1,0 +1,22 @@
+WZ2100 like bodies, propusion and weaponry with each their (dis)advantages
+
+Base HP: 500
+Base Speed: 10 m/s
+Base Body Rotation: 90 deg/s
+Base Turret Rotation/Barrel Elevation: 135 deg/s
+
+Bodies:
+Heavy(cannot be hover, high hp, lower speed) +500HP, -3 m/s
+Medium(average speed, average hp)
+Light(high speed, lower hp) -250HP, +2 m/s
+
+Propulsion:
+Wheeled(average speed, moderate rotation, average hp)
+Tracked(low speed, low rotation, high hp) -1 m/s, -15 deg/s, +250HP
+Hover(high speed, high rotation, low hp) +2 m/s, +15 deg/s, -250HP
+
+Weapons:
+Cannon(medium damage, medium range, arc fire, low rof, medium ammo, medium rotation/elevation, low splash damage) (250DMG, 500m, 60rpm, 25 ammo, 100DMG in 2m range)
+Machinegun(low damage, low range, straight fire, high rof, high ammo, high rotation/elevation, can shoot down rockets) (10DMG, 250m, 300rpm, 500 ammo, +45 deg/s)
+Rockets(high damage, high range, arc fire, very low rof, low ammo, low rotation/elevation, medium splash damage) (350DMG, 1000m, 20rpm, 15 ammo, -15 deg/s,150DMG in 5m range)
+Laser(high damage, low range, instant hit, medium rof, unlimited ammo, medium rotation/elevation, can shoot down rockets) (300DMG, 350m, 40rpm)
