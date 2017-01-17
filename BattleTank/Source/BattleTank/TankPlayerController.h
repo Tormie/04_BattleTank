@@ -21,6 +21,8 @@ private:
 	float CrossHairXLocation = 0.5f;
 	UPROPERTY(EditAnywhere)
 	float CrossHairYLocation = 0.33333f;
+	UPROPERTY(EditAnywhere)
+	float LineTraceRange = 1000000.f;
 	
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaSeconds) override;
@@ -30,5 +32,7 @@ private:
 
 	// Return an OUT parameter, true if hit landscape
 	bool GetSightRayHitLocation(FVector& HitLocation) const;
+	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
 };
 
