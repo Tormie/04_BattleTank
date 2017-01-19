@@ -32,7 +32,10 @@ void ATankAIController::Tick(float DeltaTime)
 	if (GetPlayerTank())
 	{
 		auto PlayerTankLocation = GetPlayerTank()->GetActorLocation();
-		GetControlledTank()->AimAt(PlayerTankLocation);
+		Cast<ATank>(GetPawn())->AimAt(PlayerTankLocation);
+
+		//Fire every frame
+		Cast<ATank>(GetPawn())->Fire();
 	}
 }
 
