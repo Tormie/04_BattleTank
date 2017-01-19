@@ -10,6 +10,9 @@ class BATTLETANK_API ACannonProjectile : public AActor
 {
 	GENERATED_BODY()
 	
+private:
+	UProjectileMovementComponent* ProjectileMovement = nullptr;
+
 public:	
 	// Sets default values for this actor's properties
 	ACannonProjectile();
@@ -20,6 +23,6 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
-	
+	void LaunchProjectile(float Speed);
 	
 };

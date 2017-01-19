@@ -37,13 +37,12 @@ void ATank::Fire()
 	if (!Barrel) { return; }
 
 	// Spawn a projectile at the socket location on the barrel.
-	auto time = GetWorld()->GetTimeSeconds();
-	UE_LOG(LogTemp, Warning, TEXT("%f: Fire in the hole!"), time);
-	GetWorld()->SpawnActor<ACannonProjectile>(
+	auto Projectile = GetWorld()->SpawnActor<ACannonProjectile>(
 		CannonProjectileBlueprint,
 		Barrel->GetSocketLocation(FName("Projectile")),
 		Barrel->GetSocketRotation(FName("Projectile"))
 	);
+	Projectile->LaunchProjectile(LaunchSpeed);
 }
 
 // Called to bind functionality to input
