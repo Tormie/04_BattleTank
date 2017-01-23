@@ -30,8 +30,6 @@ void ACannonProjectile::Tick( float DeltaTime )
 
 void ACannonProjectile::LaunchProjectile(float Speed)
 {
-	auto time = GetWorld()->GetTimeSeconds();
-	UE_LOG(LogTemp, Warning, TEXT("%f: Projectile fired at %f!"), time, Speed);
 	ProjectileMovement->SetVelocityInLocalSpace(FVector::ForwardVector * Speed);
 	ProjectileMovement->Activate();
 }
