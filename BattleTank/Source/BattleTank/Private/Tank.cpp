@@ -5,6 +5,7 @@
 #include "CannonProjectile.h"
 #include "Tank.h"
 #include "TankAimingComponent.h"
+#include "TankMovementComponent.h"
 
 // Sets default values
 ATank::ATank()
