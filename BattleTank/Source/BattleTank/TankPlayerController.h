@@ -16,9 +16,11 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
-private:
+protected:
+	UFUNCTION(BluePrintCallable, Category = "Setup")
 	ATank* GetControlledTank() const;
 
+private:
 	UPROPERTY(EditDefaultsOnly)
 	float CrossHairXLocation = 0.5f;
 	UPROPERTY(EditDefaultsOnly)
