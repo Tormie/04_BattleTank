@@ -17,8 +17,9 @@ void ATankAIController::Tick(float DeltaTime)
 	auto ControlledTank = Cast<ATank>(GetPawn());
 	if (PlayerTank)
 	{
-		auto PlayerTankLocation = PlayerTank->GetActorLocation();
-		ControlledTank->AimAt(PlayerTankLocation);
+		MoveToActor(PlayerTank, AcceptanceRadius);
+
+		ControlledTank->AimAt(PlayerTank->GetActorLocation());
 
 		//Fire every frame
 		ControlledTank->Fire(); // TODO limit firing rate
