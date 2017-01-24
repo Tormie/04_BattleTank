@@ -24,4 +24,8 @@ void ATankAIController::Tick(float DeltaTime)
 		//Fire every frame
 		ControlledTank->Fire(); // TODO limit firing rate
 	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("No Playertank found!"));
+	}
 }
