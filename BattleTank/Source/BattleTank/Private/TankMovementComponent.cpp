@@ -19,7 +19,6 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 	auto RightThrow = FVector::CrossProduct(TankForward, AIForwardIntention);
 	IntendMoveForward(ForwardThrow);
 	IntendTurnRight(RightThrow.Z);
-	UE_LOG(LogTemp, Warning, TEXT("Intended Right Turn: %f"), RightThrow.Z);
 }
 
 void UTankMovementComponent::IntendMoveForward(float Throw)
@@ -27,16 +26,11 @@ void UTankMovementComponent::IntendMoveForward(float Throw)
 	if (!LeftTrack || !RightTrack) { return; }
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(Throw);
-	// TODO prevent higher speed due to double control input
 }
 
 void UTankMovementComponent::IntendTurnRight(float Throw)
 {
-	if (!LeftTrack || !RightTrack) {
-		UE_LOG(LogTemp, Error, TEXT("Tank Tracks Issue"));
-		return; 
-	}
+	if (!LeftTrack || !RightTrack) { return; }
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(-Throw);
-	// TODO prevent higher speed due to double control input
 }
