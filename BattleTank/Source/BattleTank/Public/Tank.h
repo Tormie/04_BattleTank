@@ -27,8 +27,6 @@ public:
 protected:
 	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent* TankAimingComponent = nullptr;
-	UPROPERTY(BlueprintReadOnly)
-	UTankMovementComponent* TankMovementComponent = nullptr;
 
 private:
 	// Sets default values for this pawn's properties
@@ -37,7 +35,8 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<ACannonProjectile> CannonProjectileBlueprint;
-
+	
+	// TODO remove once firing is refactored
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 4000;
 
