@@ -42,7 +42,7 @@ void ATank::Fire()
 
 	}
 	else {
-		UE_LOG(LogTemp, Error, TEXT("NO BARREL DETECTED!"));
+		//UE_LOG(LogTemp, Error, TEXT("NO BARREL DETECTED!"));
 	}
 }
 

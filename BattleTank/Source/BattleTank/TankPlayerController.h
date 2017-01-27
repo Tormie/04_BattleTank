@@ -7,6 +7,7 @@
 
 // Forward declarations
 class ATank;
+class UTankAimingComponent;
 
 /**
  * 
@@ -19,6 +20,9 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 protected:
 	UFUNCTION(BluePrintCallable, Category = "Setup")
 	ATank* GetControlledTank() const;
+
+	UFUNCTION(BluePrintImplementableEvent, Category = "Setup")
+	void FoundAimingComponent(UTankAimingComponent* AimingCompRef);
 
 private:
 	UPROPERTY(EditDefaultsOnly)
