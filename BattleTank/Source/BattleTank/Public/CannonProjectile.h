@@ -11,6 +11,12 @@ class BATTLETANK_API ACannonProjectile : public AActor
 	GENERATED_BODY()
 	
 private:
+
+	void OnTimerExpire();
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float DestroyDelay = 10.f;
+
 	UPROPERTY(VisibleAnywhere, Category = "ProjectileComponent")
 	UProjectileMovementComponent* ProjectileMovement = nullptr;
 
@@ -22,6 +28,9 @@ private:
 
 	UPROPERTY(VisibleAnywhere, Category = "ProjectileComponent")
 	UParticleSystemComponent* ImpactBlast = nullptr;
+
+	UPROPERTY(VisibleAnywhere, Category = "ProjectileComponent")
+	URadialForceComponent* ExplosionForce = nullptr;
 
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);

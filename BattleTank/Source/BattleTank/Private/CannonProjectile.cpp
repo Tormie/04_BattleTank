@@ -24,6 +24,10 @@ ACannonProjectile::ACannonProjectile()
 	ImpactBlast = CreateDefaultSubobject<UParticleSystemComponent>(FName("Impact Blast"));
 	ImpactBlast->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	ImpactBlast->bAutoActivate = false;
+
+	ExplosionForce = CreateDefaultSubobject<URadialForceComponent>(FName("Explosion Force"));
+	ExplosionForce->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	ExplosionForce->bAutoActivate = false;
 }
 
 // Called when the game starts or when spawned
@@ -43,4 +47,16 @@ void ACannonProjectile::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherAc
 {
 	LaunchBlast->Deactivate();
 	ImpactBlast->Activate();
+	ExplosionForce->FireImpulse();
+	ExplosionForce->Activate();
+	SetRootComponent(ImpactBlast);
+	CollisionMesh->DestroyComponent();
+
+	FTimerHandle Timer;
+	GetWorld()->GetTimerManager().SetTimer(Timer, this, &ACannonProjectile::OnTimerExpire, DestroyDelay, false);
+}
+
+void ACannonProjectile::OnTimerExpire()
+{
+	Destroy();
 }
